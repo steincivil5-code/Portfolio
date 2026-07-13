@@ -1,0 +1,143 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.985 0.004 280);
+  --foreground: oklch(0.18 0.02 280);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 280);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 280);
+  --primary: oklch(0.48 0.2 280);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.94 0.02 280);
+  --secondary-foreground: oklch(0.25 0.03 280);
+  --muted: oklch(0.95 0.008 280);
+  --muted-foreground: oklch(0.48 0.02 280);
+  --accent: oklch(0.92 0.04 300);
+  --accent-foreground: oklch(0.28 0.06 280);
+  --destructive: oklch(0.55 0.22 25);
+  --border: oklch(0.9 0.012 280);
+  --input: oklch(0.9 0.012 280);
+  --ring: oklch(0.48 0.2 280);
+}
+
+.dark {
+  --background: oklch(0.14 0.025 280);
+  --foreground: oklch(0.93 0.01 280);
+  --card: oklch(0.19 0.03 280);
+  --card-foreground: oklch(0.93 0.01 280);
+  --popover: oklch(0.19 0.03 280);
+  --popover-foreground: oklch(0.93 0.01 280);
+  --primary: oklch(0.68 0.18 280);
+  --primary-foreground: oklch(0.14 0.025 280);
+  --secondary: oklch(0.24 0.03 280);
+  --secondary-foreground: oklch(0.93 0.01 280);
+  --muted: oklch(0.22 0.028 280);
+  --muted-foreground: oklch(0.65 0.02 280);
+  --accent: oklch(0.28 0.06 300);
+  --accent-foreground: oklch(0.88 0.06 300);
+  --destructive: oklch(0.62 0.24 25);
+  --border: oklch(0.28 0.03 280);
+  --input: oklch(0.28 0.03 280);
+  --ring: oklch(0.68 0.18 280);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .hero-grid {
+    background-image:
+      radial-gradient(circle at 20% 20%, oklch(0.48 0.2 280 / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 60%, oklch(0.55 0.18 300 / 0.06) 0%, transparent 45%),
+      linear-gradient(to bottom, transparent, oklch(0.985 0.004 280));
+  }
+
+  .dark .hero-grid {
+    background-image:
+      radial-gradient(circle at 20% 20%, oklch(0.68 0.18 280 / 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 60%, oklch(0.55 0.18 300 / 0.08) 0%, transparent 45%),
+      linear-gradient(to bottom, transparent, oklch(0.14 0.025 280));
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .tech-orbit {
+    animation: orbit 20s linear infinite;
+  }
+
+  @keyframes orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .tech-orbit-reverse {
+    animation: orbit-reverse 25s linear infinite;
+  }
+
+  @keyframes orbit-reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+  }
+
+  .animate-diamond-pulse {
+    animation: diamond-pulse 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes diamond-pulse {
+    0%, 100% { opacity: 0.75; transform: rotate(45deg) scale(1); }
+    50% { opacity: 0.35; transform: rotate(45deg) scale(0.7); }
+  }
+}
