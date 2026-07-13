@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 import { Mail, Send, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/common/fade-in";
-import { contactInfo } from "@/lib/data";
+import { contactInfo, personalInfo } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 export function ContactSection() {
@@ -28,7 +28,10 @@ export function ContactSection() {
               Contact
             </p>
             <h2 className="text-3xl font-bold md:text-4xl">Have an AI product idea?</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
+            <p className="mt-4 text-lg font-medium text-foreground">
+              {personalInfo.availability}
+            </p>
+            <p className="mt-2 text-muted-foreground">
               Let&apos;s discuss how intelligent software can help your business grow.
             </p>
             <a

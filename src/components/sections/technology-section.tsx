@@ -18,9 +18,9 @@ export function TechnologySection() {
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
               Technology
             </p>
-            <h2 className="text-3xl font-bold md:text-4xl">Tools I ship with</h2>
+            <h2 className="text-3xl font-bold md:text-4xl">What I build with technology</h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              A modern stack spanning AI, full-stack development, and cloud-native infrastructure.
+              Not a skill list — systems and products shipped across AI, full-stack, and cloud.
             </p>
           </div>
         </FadeIn>

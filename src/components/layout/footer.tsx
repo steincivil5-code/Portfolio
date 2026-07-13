@@ -1,6 +1,6 @@
 import { contactInfo, personalInfo } from "@/lib/data";
 import { BrandLogo } from "@/components/common/brand-logo";
-import { Code2, Link2 } from "lucide-react";
+import { SocialIcon } from "@/components/common/social-icons";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -23,11 +23,7 @@ export function Footer() {
                 className="flex h-9 w-9 items-center justify-center rounded-lg border text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
                 aria-label={social.platform}
               >
-                {social.platform === "GitHub" ? (
-                  <Code2 className="h-4 w-4" />
-                ) : (
-                  <Link2 className="h-4 w-4" />
-                )}
+                <SocialIcon platform={social.platform} />
               </a>
             ))}
           </div>

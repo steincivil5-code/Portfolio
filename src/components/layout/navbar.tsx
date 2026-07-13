@@ -63,13 +63,13 @@ export function Navbar() {
           <BrandLogo className="text-primary" />
         </Link>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-0.5 lg:flex">
           {navSections.slice(1).map((section) => (
             <button
               key={section.id}
               onClick={() => scrollToSection(section.id)}
               className={cn(
-                "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                "rounded-lg px-2.5 py-2 text-sm font-medium transition-colors",
                 activeSection === section.id
                   ? "bg-primary/10 text-primary"
                   : "text-muted-foreground hover:text-foreground"
@@ -78,6 +78,27 @@ export function Navbar() {
               {section.label}
             </button>
           ))}
+        </div>
+
+        <div className="hidden items-center gap-2 md:flex lg:hidden">
+          {navSections
+            .filter((s) =>
+              ["about", "projects", "experience", "contact"].includes(s.id)
+            )
+            .map((section) => (
+              <button
+                key={section.id}
+                onClick={() => scrollToSection(section.id)}
+                className={cn(
+                  "rounded-lg px-2.5 py-2 text-sm font-medium transition-colors",
+                  activeSection === section.id
+                    ? "bg-primary/10 text-primary"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {section.label}
+              </button>
+            ))}
         </div>
 
         <div className="hidden items-center gap-2 md:flex">

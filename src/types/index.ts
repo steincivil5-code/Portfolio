@@ -7,7 +7,9 @@ export interface Project {
     problem?: string;
     solution?: string;
     architecture?: string[];
+    architectureFlow?: string[];
     impact?: string;
+    metrics?: { label: string; value: string }[];
     technologies: string[];
     category: ProjectCategory;
     liveUrl?: string;
@@ -18,6 +20,23 @@ export interface Project {
     startDate: string;
     endDate?: string;
     highlights?: string[];
+}
+
+export interface EngineeringProject {
+    id: string;
+    title: string;
+    description: string;
+    features: string[];
+    technologies: string[];
+    githubUrl?: string;
+}
+
+export interface EngineeringNote {
+    id: string;
+    title: string;
+    excerpt: string;
+    tags: string[];
+    readTime: string;
 }
 
 export type ProjectCategory =

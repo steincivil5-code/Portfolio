@@ -21,7 +21,7 @@ export function HeroSection() {
         <FadeIn>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border bg-card/80 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm">
             <Sparkles className="h-3.5 w-3.5 text-primary" />
-            <span>Senior AI Product Engineer · Available for select projects</span>
+            <span>{personalInfo.availability}</span>
           </div>
         </FadeIn>
 

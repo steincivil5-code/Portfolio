@@ -4,9 +4,11 @@ import { Navbar } from "@/components/layout/navbar";
 import { AboutSection } from "@/components/sections/about-section";
 import { ApproachSection } from "@/components/sections/approach-section";
 import { ContactSection } from "@/components/sections/contact-section";
+import { EngineeringSection } from "@/components/sections/engineering-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { ExpertiseSection } from "@/components/sections/expertise-section";
 import { HeroSection } from "@/components/sections/hero-section";
+import { NotesSection } from "@/components/sections/notes-section";
 import { ProjectsSection } from "@/components/sections/projects-section";
 import { TechnologySection } from "@/components/sections/technology-section";
 
@@ -22,6 +24,8 @@ export default function HomePage() {
         <ExperienceSection />
         <ApproachSection />
         <TechnologySection />
+        <EngineeringSection />
+        <NotesSection />
         <ContactSection />
       </main>
       <Footer />

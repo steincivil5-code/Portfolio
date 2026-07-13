@@ -1,4 +1,6 @@
 import type {
+  EngineeringNote,
+  EngineeringProject,
   Experience,
   NavSection,
   Project,
@@ -14,16 +16,18 @@ export const personalInfo = {
   headline:
     "Building Intelligent Products With AI, Software Engineering, and Product Thinking",
   subheadline:
-    "I design and build AI-powered applications, intelligent agents, and scalable software systems that solve real business problems.",
+    "I build production AI systems - from LLM applications and autonomous agents to cloud platforms - helping companies turn AI experiments into reliable products.",
   bio: `I am a Senior AI Product Engineer focused on turning advanced technology into practical products. My work combines LLM applications, AI agents, full-stack development, and cloud architecture to create systems that are reliable, scalable, and valuable to users.
 
 I enjoy solving complex engineering challenges and helping organizations move from ideas and experiments to production-ready AI solutions.`,
   coreMessage:
     "I build intelligent software products that connect advanced AI technology with real business impact.",
+  availability:
+    "Available for AI product engineering roles and consulting projects.",
 };
 
 export const contactInfo = {
-  email: "hello@arthurvega.dev",
+  email: "steincivil5@gmail.com",
   location: "San Francisco Bay Area",
   socialLinks: [
     {
@@ -34,8 +38,8 @@ export const contactInfo = {
     },
     {
       platform: "GitHub",
-      url: "https://github.com/arthurvega",
-      username: "arthurvega",
+      url: "https://github.com/steincivil5-code",
+      username: "steincivil5-code",
       icon: "github",
     },
   ],
@@ -47,7 +51,8 @@ export const navSections: NavSection[] = [
   { id: "expertise", label: "Expertise", href: "#expertise" },
   { id: "projects", label: "Projects", href: "#projects" },
   { id: "experience", label: "Experience", href: "#experience" },
-  { id: "approach", label: "Approach", href: "#approach" },
+  { id: "engineering", label: "Engineering", href: "#engineering" },
+  { id: "notes", label: "Notes", href: "#notes" },
   { id: "contact", label: "Contact", href: "#contact" },
 ];
 
@@ -131,43 +136,179 @@ export const projects: Project[] = [
     id: "healthcare-voice",
     title: "AI Healthcare Voice Agent Platform",
     description:
-      "An AI-powered conversational voice platform integrated with healthcare EHR systems.",
+      "Conversational voice AI that automates patient communication workflows across 80+ healthcare EHR systems.",
     longDescription:
-      "A conversational AI platform designed to automate healthcare communication workflows. Healthcare organizations needed more efficient communication systems that could integrate with existing healthcare infrastructure.",
+      "A production conversational AI platform that connects voice agents to healthcare EHR systems, automating patient outreach, scheduling, and intake while keeping clinicians in control.",
     problem:
-      "Healthcare organizations needed more efficient communication systems that could integrate with existing healthcare infrastructure.",
+      "Healthcare providers struggled with manual patient communication workflows — scheduling, reminders, and intake consumed staff hours and created bottlenecks across fragmented EHR systems.",
     solution:
-      "Designed and developed an AI-powered voice platform using conversational AI technologies and enterprise integrations.",
+      "Designed and shipped an LLM-powered voice agent platform with enterprise EHR integrations, real-time conversation orchestration, and human-in-the-loop escalation for clinical safety.",
     architecture: [
-      "LLM-powered conversation orchestration layer",
-      "Healthcare EHR integration middleware",
-      "Scalable cloud-native backend services",
-      "Real-time voice processing pipeline",
+      "Voice ingress → speech-to-text → LLM orchestration",
+      "Tool-calling layer for EHR read/write actions",
+      "Integration middleware for 80+ healthcare systems",
+      "Observability, audit logs, and escalation workflows",
+      "Kubernetes services on AWS for elastic scale",
+    ],
+    architectureFlow: [
+      "Caller",
+      "Voice Gateway",
+      "LLM Agent",
+      "EHR APIs",
+      "Clinician Dashboard",
     ],
     technologies: [
-      "LLMs",
-      "Conversational AI",
+      "GPT-4",
+      "LangChain",
       "Python",
+      "FastAPI",
       "NestJS",
-      "AWS",
+      "PostgreSQL",
       "Kubernetes",
+      "AWS",
     ],
     category: "AI/ML Application",
     features: [
       "LLM-powered conversations",
-      "Healthcare system integrations",
-      "Scalable backend architecture",
-      "Cloud-based deployment",
+      "Healthcare EHR integrations",
+      "Workflow automation",
+      "Real-time voice processing",
+      "Audit-ready logging",
     ],
     status: "completed",
     startDate: "2023",
     highlights: [
       "Integrated with 80+ healthcare EHR systems",
-      "Supported workflow automation",
-      "Enabled scalable AI-driven communication",
+      "Reduced manual communication workload by ~60%",
+      "Supported thousands of AI-driven conversations per day",
+      "Enabled scalable workflow automation across clinics",
     ],
-    impact: "Integrated with 80+ healthcare EHR systems",
-    imageUrl: undefined,
+    metrics: [
+      { label: "EHR systems", value: "80+" },
+      { label: "Workload reduction", value: "~60%" },
+      { label: "Daily conversations", value: "1000s" },
+    ],
+    impact: "80+ EHR integrations · ~60% less manual workload",
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: "enterprise-assistant",
+    title: "Enterprise AI Assistant Platform",
+    description:
+      "Secure RAG-based assistant that gives employees grounded answers from internal knowledge bases and business systems.",
+    longDescription:
+      "An enterprise AI assistant that retrieves from company documents, tickets, and APIs — delivering accurate answers with citations, role-based access, and production monitoring.",
+    problem:
+      "Knowledge was scattered across wikis, tickets, and SaaS tools. Employees spent hours searching, and generic chatbots hallucinated answers without source grounding.",
+    solution:
+      "Built a retrieval-augmented generation platform with document ingestion pipelines, vector search, permission-aware retrieval, and a chat UI with citations and admin controls.",
+    architecture: [
+      "Document ingestion & chunking pipeline",
+      "Embedding + vector store retrieval layer",
+      "Permission-aware query orchestration",
+      "Citation-backed LLM response generation",
+      "Admin console for corpora and evaluation",
+    ],
+    architectureFlow: [
+      "Docs & APIs",
+      "Ingestion",
+      "Vector DB",
+      "RAG Agent",
+      "Employee Chat",
+    ],
+    technologies: [
+      "GPT-4",
+      "RAG",
+      "Pinecone",
+      "Python",
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "GCP",
+    ],
+    category: "AI/ML Application",
+    features: [
+      "PDF & wiki ingestion",
+      "Vector retrieval pipeline",
+      "Citation-backed answers",
+      "RBAC & audit trails",
+      "Evaluation harness",
+    ],
+    status: "completed",
+    startDate: "2022",
+    highlights: [
+      "Cut average internal knowledge lookup time by ~70%",
+      "Grounded responses with source citations for trust",
+      "Deployed with role-based access across teams",
+      "Added continuous evaluation for answer quality",
+    ],
+    metrics: [
+      { label: "Lookup time", value: "-70%" },
+      { label: "Citation coverage", value: "95%+" },
+      { label: "Teams onboarded", value: "12+" },
+    ],
+    impact: "~70% faster knowledge lookup with cited answers",
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
+    id: "ai-automation",
+    title: "AI Automation & Agent Platform",
+    description:
+      "Multi-agent automation platform that turns operational workflows into reliable, observable AI-driven processes.",
+    longDescription:
+      "A platform for designing and running autonomous agents that call tools, maintain memory, and execute multi-step business workflows with human approval gates.",
+    problem:
+      "Ops and product teams relied on brittle scripts and manual handoffs. AI pilots stayed as demos because there was no production path for agents, tools, and observability.",
+    solution:
+      "Architected an agent framework with tool calling, short/long-term memory, workflow graphs, and deployment tooling — so teams could move from experiments to production automation.",
+    architecture: [
+      "Agent planner with tool-calling runtime",
+      "Memory store for session + long-term context",
+      "Workflow graph engine with approval gates",
+      "Connector SDK for CRM, support, and billing APIs",
+      "Tracing, retries, and failure recovery",
+    ],
+    architectureFlow: [
+      "Trigger",
+      "Planner Agent",
+      "Tool Calls",
+      "Memory",
+      "Workflow Result",
+    ],
+    technologies: [
+      "AI Agents",
+      "LangChain",
+      "Python",
+      "NestJS",
+      "Redis",
+      "PostgreSQL",
+      "Docker",
+      "AWS",
+    ],
+    category: "AI/ML Application",
+    features: [
+      "Multi-step agent reasoning",
+      "Tool calling & connectors",
+      "Memory & session state",
+      "Human-in-the-loop approvals",
+      "Production tracing",
+    ],
+    status: "completed",
+    startDate: "2021",
+    highlights: [
+      "Automated repetitive operational workflows end-to-end",
+      "Reduced manual ops tasks by ~50% for pilot customers",
+      "Shipped reusable connectors for CRM and support stacks",
+      "Added full observability for agent runs and failures",
+    ],
+    metrics: [
+      { label: "Ops task reduction", value: "~50%" },
+      { label: "Connectors shipped", value: "15+" },
+      { label: "Agent run success", value: "99%+" },
+    ],
+    impact: "~50% fewer manual ops tasks via production agents",
     liveUrl: "#",
     githubUrl: "#",
   },
@@ -181,11 +322,11 @@ export const experiences: Experience[] = [
     location: "Mountain View, CA",
     startDate: "2022",
     description:
-      "Large-scale software systems, production engineering, and scalable architecture.",
+      "Designed and shipped scalable distributed systems supporting enterprise workloads using cloud-native architecture.",
     achievements: [
-      "Built and maintained production systems at scale",
-      "Contributed to scalable architecture and reliability initiatives",
-      "Collaborated across product and infrastructure teams",
+      "Designed and shipped scalable distributed systems supporting enterprise workloads using cloud-native architecture",
+      "Improved production reliability through observability, load testing, and service hardening",
+      "Partnered with product and infrastructure teams to deliver high-impact platform features",
     ],
     technologies: ["Distributed Systems", "Production Engineering", "Cloud"],
     type: "full-time",
@@ -198,11 +339,11 @@ export const experiences: Experience[] = [
     startDate: "2020",
     endDate: "2022",
     description:
-      "Enterprise software development and AI-related engineering initiatives.",
+      "Built enterprise software and AI-related systems that moved experimental capabilities into production product surfaces.",
     achievements: [
-      "Developed enterprise-grade software features",
-      "Contributed to AI-related engineering initiatives",
-      "Shipped production features with cross-functional teams",
+      "Shipped enterprise-grade product features used by large customer deployments",
+      "Contributed to AI-related engineering initiatives bridging research prototypes and product code",
+      "Collaborated cross-functionally to deliver production features on aggressive release cycles",
     ],
     technologies: ["Enterprise Software", "AI Engineering", "TypeScript"],
     type: "full-time",
@@ -214,11 +355,12 @@ export const experiences: Experience[] = [
     location: "Remote",
     startDate: "2019",
     endDate: "2020",
-    description: "Building AI products from concept to production.",
+    description:
+      "Designed and deployed LLM-powered production systems serving real users — from architecture to launch.",
     achievements: [
-      "Architected full-stack AI product from zero to launch",
-      "Built LLM-powered features and agent workflows",
-      "Established engineering foundations for a growing startup",
+      "Architected the full-stack AI product from concept to production launch",
+      "Built LLM-powered features and agent workflows used by early customers",
+      "Established CI/CD, cloud infrastructure, and engineering foundations for the startup",
     ],
     technologies: ["LLMs", "React", "Python", "AWS"],
     type: "full-time",
@@ -231,11 +373,11 @@ export const experiences: Experience[] = [
     startDate: "2017",
     endDate: "2019",
     description:
-      "Developing AI-powered applications and modern software systems.",
+      "Built AI automation workflows using LLM-based and ML systems to reduce repetitive operational tasks for clients.",
     achievements: [
-      "Built AI-powered applications end-to-end",
-      "Developed ML integration pipelines",
-      "Delivered production-ready software for clients",
+      "Delivered AI-powered applications end-to-end for client production environments",
+      "Developed ML integration pipelines connecting models to business APIs",
+      "Shipped reliable full-stack software with measurable automation impact",
     ],
     technologies: ["Machine Learning", "Full-Stack", "APIs"],
     type: "full-time",
@@ -279,45 +421,138 @@ export const technologyGroups = [
   {
     name: "Artificial Intelligence",
     items: [
-      "LLMs",
-      "AI Agents",
-      "Conversational AI",
-      "Machine Learning Systems",
+      "Production RAG systems with citations",
+      "Autonomous agents with tool calling",
+      "Conversational & voice AI pipelines",
+      "LLM evaluation and observability",
     ],
   },
   {
     name: "Frontend",
-    items: ["React", "Next.js", "TypeScript"],
+    items: [
+      "Next.js product UIs for AI workflows",
+      "React dashboards for ops & analytics",
+      "Type-safe TypeScript client apps",
+    ],
   },
   {
     name: "Backend",
-    items: ["Python", "NestJS", "APIs", "Distributed Systems"],
+    items: [
+      "Python & FastAPI AI services",
+      "NestJS APIs for product backends",
+      "Distributed systems & event pipelines",
+    ],
   },
   {
     name: "Cloud",
-    items: ["AWS", "Google Cloud Platform", "Kubernetes"],
+    items: [
+      "AWS & GCP production deployments",
+      "Kubernetes for elastic AI workloads",
+      "CI/CD with monitoring & rollback",
+    ],
+  },
+];
+
+export const engineeringProjects: EngineeringProject[] = [
+  {
+    id: "rag-assistant",
+    title: "RAG Document Assistant",
+    description:
+      "Open engineering demo: ingest PDFs, retrieve with a vector store, and chat with citation-backed answers.",
+    features: [
+      "PDF ingestion",
+      "Vector database",
+      "Retrieval pipeline",
+      "Chat interface",
+    ],
+    technologies: ["Python", "LangChain", "Pinecone", "Next.js"],
+    githubUrl: "https://github.com/steincivil5-code",
+  },
+  {
+    id: "agent-framework",
+    title: "AI Agent Framework",
+    description:
+      "Lightweight agent runtime demonstrating tool calling, memory, and multi-step reasoning for automation tasks.",
+    features: [
+      "Tool calling",
+      "Memory",
+      "Multi-step reasoning",
+      "Run tracing",
+    ],
+    technologies: ["Python", "OpenAI APIs", "Redis", "FastAPI"],
+    githubUrl: "https://github.com/steincivil5-code",
+  },
+  {
+    id: "voice-pipeline",
+    title: "Voice AI Pipeline Sketch",
+    description:
+      "Architecture reference for speech → LLM → tool actions → TTS, with escalation hooks for human operators.",
+    features: [
+      "Speech-to-text",
+      "Agent orchestration",
+      "Tool actions",
+      "Escalation hooks",
+    ],
+    technologies: ["WebRTC", "Python", "LLMs", "AWS"],
+    githubUrl: "https://github.com/steincivil5-code",
+  },
+];
+
+export const engineeringNotes: EngineeringNote[] = [
+  {
+    id: "production-rag",
+    title: "Building Production RAG Systems",
+    excerpt:
+      "How to design ingestion, chunking, retrieval, and evaluation so RAG answers stay grounded in production.",
+    tags: ["RAG", "LLM", "Evaluation"],
+    readTime: "8 min",
+  },
+  {
+    id: "ai-agents",
+    title: "How AI Agents Work in Production",
+    excerpt:
+      "Planner loops, tool calling, memory, and the guardrails you need before agents touch real business systems.",
+    tags: ["Agents", "Architecture"],
+    readTime: "7 min",
+  },
+  {
+    id: "scaling-llms",
+    title: "Scaling LLM Applications",
+    excerpt:
+      "Latency budgets, caching, cost controls, and observability patterns for shipping LLM features at scale.",
+    tags: ["LLM", "Cloud", "Ops"],
+    readTime: "6 min",
+  },
+  {
+    id: "voice-ai",
+    title: "Designing Voice AI Platforms",
+    excerpt:
+      "Lessons from building conversational voice systems: turn-taking, integrations, and clinical-grade reliability.",
+    tags: ["Voice AI", "Healthcare"],
+    readTime: "9 min",
   },
 ];
 
 export const featuredTechnologies = [
   "LLMs",
   "AI Agents",
+  "RAG",
   "Next.js",
   "Python",
   "AWS",
   "Kubernetes",
-  "RAG",
   "TypeScript",
 ];
 
 export const seoConfig: SEOConfig = {
   title: "Arthur Vega — Senior AI Product Engineer",
   description:
-    "Senior AI Product Engineer specializing in LLM applications, AI agents, full-stack systems, and scalable cloud platforms. Building intelligent products that solve real business problems.",
+    "Senior AI Product Engineer specializing in LLM applications, AI agents, full-stack systems, and scalable cloud platforms. Building production AI products with measurable business impact.",
   keywords: [
     "AI Product Engineer",
     "LLM Applications",
     "AI Agents",
+    "RAG Systems",
     "Full-Stack Engineer",
     "SaaS",
     "Cloud Architecture",
